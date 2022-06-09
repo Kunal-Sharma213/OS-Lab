@@ -7,13 +7,13 @@ void mfu(int arr[], int n, int capacity){
     for(int i = 0; i < capacity; i++){
         f++;
         S.insert(arr[i]);
-        mp[arr[i]] = i;
+        mp[arr[i]] = 1;
     }
     for(int i = capacity; i < n; i++){
         auto it = S.find(arr[i]);
         if(it != S.end()){
             h++;
-            mp[arr[i]] = i;
+            mp[arr[i]]++;
         }
         else{
             f++;
@@ -22,7 +22,7 @@ void mfu(int arr[], int n, int capacity){
                 if(x.second > ind) ind = x.second;
             }
             mp.erase(arr[ind]);
-            mp[arr[i]] = i;
+            mp[arr[i]] = 1;
             S.erase(arr[ind]);
             S.insert(arr[i]);
         }

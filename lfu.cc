@@ -7,13 +7,13 @@ void lfu(int arr[], int n, int capacity){
     for(int i = 0; i < capacity; i++){
         f++;
         S.insert(arr[i]);
-        mp[arr[i]] = i;
+        mp[arr[i]] = 1;
     }
     for(int i = 0; i < n; i++){
         auto it = S.find(arr[i]);
         if(it != S.end()){
             h++;
-            mp[arr[i]] = i;
+            mp[arr[i]]++;
         }
         else{
             f++;
